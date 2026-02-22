@@ -4,15 +4,16 @@ jobs:
   Build:
     strategy:
       matrix:
-        go-version: [1.22.x, 1.23.x, 1.24.x, 1.25.x, 1.26.x]
+        go-version: [1.23.x, 1.24.x, 1.25.x]
         platform: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.platform }}
     steps:
     - name: Install Go
-      uses: actions/setup-go@v1
+      uses: actions/setup-go@v5
       with:
         go-version: ${{ matrix.go-version }}
+        cache: true
     - name: Fetch Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Run Test
       run: go test

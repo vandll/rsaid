@@ -1,3 +1,3 @@
-module github.com/jacovdloo/rsaid
+module github.com/vandll/rsaid
 
-go 1.19
+go 1.26.0
